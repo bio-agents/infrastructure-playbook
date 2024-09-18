@@ -1,0 +1,12 @@
+---
+# Wed Jun 19 17:58:28 CEST 2019 HXR Added because they get badly behaved so
+# we're best off to just restart regularly.
+
+- name: Restart Galaxy processes
+  cron:
+    name: "{{ item.name }}"
+    minute: "{{ item.minute }}"
+    hour: "{{ item.hour }}"
+    job: "{{ item.job }}"
+    user: "{{ item.user }}"
+  loop: "{{ cron_tasks }}"

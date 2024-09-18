@@ -1,0 +1,80 @@
+---
+- name: "Make parent dir"
+  file:
+    state: directory
+    dest: "{{ pgs_dir }}"
+    owner: centos
+    group: centos
+    mode: 0755
+
+- name: "Clone repository"
+  become: true
+  become_user: centos
+  git:
+    repo: 'https://github.com/martenson/public-galaxy-servers/'
+    dest: "{{ pgs_repo_dir }}"
+    version: master
+    force: yes
+
+- name: "Fix perms here"
+  file:
+    state: directory
+    dest: "{{ pgs_repo_dir }}"
+    owner: centos
+    group: centos
+    mode: 0755
+
+- name: "Template runner script"
+  become: true
+  become_user: centos
+  template:
+    src: script.sh.j2
+    dest: "{{ pgs_dir }}/run.sh"
+    mode: 0755
+
+- name: "Install virtualenv"
+  package:
+    name: python-virtualenv
+    state: installed
+
+- name: "Install requirements"
+  become: true
+  become_user: centos
+  pip:
+    requirements: "{{ pgs_repo_dir }}/requirements.txt"
+    virtualenv: "{{ pgs_dir }}/venv"
+
+- name: "Fix perms here"
+  file:
+    state: directory
+    dest: "{{ pgs_dir }}/venv"
+    owner: centos
+    group: centos
+    mode: 0755
+
+- name: "Install influxdb"
+  become: true
+  become_user: centos
+  pip:
+    name: influxdb
+    virtualenv: "{{ pgs_dir }}/venv"
+
+- name: "Configure hourly cron job"
+  cron:
+    name: "run public-galaxy-server collector/processing"
+    minute: "0"
+    hour: "*"
+    user: centos
+    job: "bash {{ pgs_dir }}/run.sh"
+
+- name: "Allow httpd_sys_content_t to access the queries dir"
+  sefcontext:
+    target: '{{ pgs_web_dir }}(/.*)?'
+    setype: httpd_sys_content_t
+    state: present
+  register: update_fcontexts
+  when: ansible_selinux.mode == "enforcing"
+
+- name: Apply new SELinux file context to filesystem
+  command: "restorecon -irv {{ pgs_web_dir }}"
+  when: ansible_selinux.mode == "enforcing" and update_fcontexts.changed

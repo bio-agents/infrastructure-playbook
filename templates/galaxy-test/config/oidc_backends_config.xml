@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<OIDC>
+    <provider name="iEchor">
+        <client_id>{{ iechor_aai.test_usegalaxy_eu.client_id }}</client_id>
+        <client_secret>{{ iechor_aai.test_usegalaxy_eu.client_secret }}</client_secret>
+        <redirect_uri>https://test.usegalaxy.eu/authnz/iechor/callback</redirect_uri>
+        <prompt>consent</prompt>
+        <icon>https://iechor-europe.org/sites/default/files/images/login-button-orange.png</icon>
+    </provider>
+</OIDC>

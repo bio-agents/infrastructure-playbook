@@ -1,0 +1,32 @@
+---
+- hosts: cvmfsstratum1servers
+  become: true
+  vars:
+    hostname: cvmfs1-ufr0.internal.galaxyproject.eu
+  vars_files:
+    - "secret_group_vars/all.yml"
+  pre_tasks:
+    - file:
+        src: /data/dnb01
+        dest: /srv
+        owner: root
+        group: root
+        state: link
+        force: true
+  roles:
+    - hostname
+    - usegalaxy-eu.dynmotd
+    - geerlingguy.repo-epel
+    - hxr.admin-agents
+    - influxdata.chrony
+    - hxr.monitor-email
+    - linuxhq.yum_cron
+    - hxr.autofs
+    # BEGIN custom
+    - galaxyproject.cvmfs
+    - hxr.monitor-squid
+    - hxr.monitor-cvmfs
+    # END custom
+    - dj-wasabi.telegraf
+    - dev-sec.os-hardening
+    - dev-sec.ssh-hardening

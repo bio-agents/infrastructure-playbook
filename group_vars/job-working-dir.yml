@@ -1,0 +1,9 @@
+---
+# Volumes
+usegalaxy_eu_autofs_mounts:
+ - vdb
+
+nfs_exports:
+ - "/vols/vdb/ *(rw,sync)"
+nfs_rpcbind_state: started
+nfs_rpcbind_enabled: true

@@ -1,0 +1,28 @@
+---
+- name: "Deploy script"
+  copy:
+    content: |
+        #!/bin/bash
+        cd {{ galaxy_root }};
+        for dir in {custom-agents,dynamic_rules,interactive_environments,mutable-config,mutable-data,server,venv,agent-data}; do
+            if [ -d $dir ]; then
+                echo "Syncing $dir"
+                rsync -avr --delete --exclude client/node_modules $dir/ {{ galaxy_nfs_location }}/$dir/
+            else
+                echo "Skipping $dir"
+            fi
+        done;
+        if [ -d shed_agents-local ]; then
+            echo "Syncing shed_agents-local"
+            rsync -avr --delete shed_agents-local/ {{ galaxy_nfs_location }}/shed_agents/
+        else
+            echo "Skipping shed_agents-local"
+        fi
+    dest: /usr/bin/galaxy-sync-to-nfs
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Execute the script. Syncing in progress."
+  command: /usr/bin/galaxy-sync-to-nfs
+  when: execute_galaxy_sync_to_nfs

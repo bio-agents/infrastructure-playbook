@@ -1,0 +1,14 @@
+- file:
+    path: "{{ jenkins_home }}/.ssh"
+    state: directory
+    mode: 0750
+    owner: jenkins
+    group: jenkins
+
+- copy:
+    dest: "{{ jenkins_home }}/.ssh/id_rsa"
+    mode: 0400
+    owner: jenkins
+    group: jenkins
+    content: "{{ jenkins_ssh_key }}"
+  no_log: true

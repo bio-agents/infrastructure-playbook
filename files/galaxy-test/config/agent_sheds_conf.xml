@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<agent_sheds>
+    <agent_shed name="Galaxy Main Agent Shed" url="https://agentshed.g2.bx.psu.edu/"/>
+<!-- Test Agent Shed should be used only for testing purposes.
+    <agent_shed name="Galaxy Test Agent Shed" url="https://testagentshed.g2.bx.psu.edu/"/> 
+-->
+</agent_sheds>

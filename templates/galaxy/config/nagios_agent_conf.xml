@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<agentbox>
+	<agent file="/opt/galaxy/config/echo_main_env.xml" hidden="True" />
+</agentbox>

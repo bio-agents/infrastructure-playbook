@@ -1,0 +1,25 @@
+---
+- name: "Nagios agents directory"
+  file:
+    path: "{{ galaxy_agent_dir }}/nagios/"
+    state: directory
+    owner: "{{ galaxy_user.name }}"
+    group: "{{ galaxy_group }}"
+    mode: 0755
+
+- name: "Template nagios agents"
+  template:
+    src: echo.xml
+    dest: "{{ galaxy_agent_dir }}/nagios/{{ item }}.xml"
+    owner: "{{ galaxy_user.name }}"
+    group: "{{ galaxy_group }}"
+    mode: 0640
+  with_items: "{{ galaxy_test_user.handlers }}"
+
+- name: "Nagios agent conf"
+  template:
+    src: nagios_agent_conf.xml
+    dest: "{{ galaxy_conf_dir }}/nagios_agent_conf.xml"
+    owner: "{{ galaxy_user.name }}"
+    group: "{{ galaxy_group }}"
+    mode: 0640

@@ -1,0 +1,11 @@
+---
+# tasks file for galaxyprojectdotorg.proftpd
+
+- name: Install ProFTPD (apt)
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - proftpd-basic
+    - proftpd-mod-pgsql
+    - proftpd-doc
+    - proftpd-dev

@@ -1,0 +1,90 @@
+---
+hxr_custom_group:
+  name: tomcat
+hxr_custom_user:
+  name: tomcat
+  comment: "Apache Tomcat"
+  shell: /sbin/nologin
+
+usegalaxy_eu_autofs_mounts:
+ - data
+
+# NGINX
+nginx_enable_default_server: false
+nginx_servers:
+  - apollo
+nginx_conf_http:
+  client_max_body_size: 1g
+
+tomcat7_packages:
+- tomcat
+- tomcat-admin-webapps
+- tomcat-webapps
+
+tomcat7_hostname: localhost
+tomcat7_server_port: 8005
+tomcat7_catalina_port: 8080
+tomcat7_ajp_port: 8009
+tomcat7_uriencoding: ""
+
+apollo_version: eu-2.5.0
+
+apollo_config_apollo: |
+    extraTabs = [
+        ['title': 'GGA', 'url': 'https://gitter.im/galaxy-genome-annotation/Lobby/~embed']
+    ]
+
+apollo_config_jbrowse: |
+    jbrowse {
+        git {
+            url= "https://github.com/GMOD/jbrowse"
+            tag = "1.16.6-release"
+            alwaysPull = true
+            alwaysRecheck = true
+        }
+
+        plugins {
+            NeatHTMLFeatures{
+                included = true
+            }
+            NeatCanvasFeatures{
+                included = true
+            }
+            RegexSequenceSearch{
+                included = true
+            }
+            HideTrackLabels{
+                included = true
+            }
+            SashimiPlot {
+                included = true
+            }
+            MAFViewer {
+                included = true
+            }
+            BlastView {
+                included = true
+            }
+        }
+    }
+
+
+#telegraf_plugins_extra:
+  #- plugin: statsd
+    #config:
+      #- protocol = "udp"
+      #- max_tcp_connections = 250
+      #- service_address = ":8125"
+      #- delete_gauges = true
+      #- delete_counters = true
+      #- delete_sets = true
+      #- delete_timings = true
+      #- percentiles = [90]
+      #- metric_separator = "."
+      #- parse_data_dog_tags = false
+      #- allowed_pending_messages = 10000
+      #- percentile_limit = 1000
+  #- plugin: tomcat
+    #config:
+      #- username = "monitor"
+      #- password = "{{ tomcat7_monitor_password }}"

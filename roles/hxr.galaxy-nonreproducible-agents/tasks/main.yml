@@ -1,0 +1,6 @@
+- name: Clone repository
+  git:
+    repo: "https://github.com/usegalaxy-eu/temporary-agents"
+    dest: "{{ galaxy_nonrepro_agents }}"
+    version: master
+    force: "yes"

@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='utf-8'?>
+<agentbox>
+  <section id="get_data" name="Get Data">
+    <agent file="data_source/upload.xml" />
+    <agent file="data_source/ucsc_tablebrowser.xml" />
+    <!-- <agent file="data_source/ucsc_tablebrowser_test.xml" /> -->
+    <agent file="data_source/ucsc_tablebrowser_archaea.xml" />
+    <agent file="data_source/ebi_sra.xml" />
+    <agent file="data_source/microbial_import.xml" />
+    <agent file="data_source/biomart.xml" />
+    <agent file="data_source/biomart_test.xml" />
+    <agent file="data_source/cbi_rice_mart.xml" />
+    <agent file="data_source/gramene_mart.xml" />
+    <agent file="data_source/dorina_galaxy.xml" />
+    <agent file="data_source/fairdomhub.xml" />
+    <agent file="data_source/fly_modencode.xml" />
+    <agent file="data_source/intermine.xml" />
+    <agent file="data_source/flymine.xml" />
+    <!-- <agent file="data_source/flymine_test.xml" /> -->
+    <agent file="data_source/modmine.xml" />
+    <agent file="data_source/mousemine.xml" />
+    <agent file="data_source/ratmine.xml" />
+    <agent file="data_source/yeastmine.xml" />
+    <agent file="data_source/metabolicmine.xml" />
+    <agent file="data_source/worm_modencode.xml" />
+    <agent file="data_source/wormbase.xml" />
+    <!-- <agent file="data_source/wormbase_test.xml" /> -->
+    <agent file="data_source/zebrafishmine.xml" />
+    <agent file="data_source/eupathdb.xml" />
+    <agent file="data_source/hbvar.xml" />
+    <agent file="genomespace/genomespace_importer.xml" />
+    <agent file="genomespace/genomespace_push.xml" />
+  </section>
+  <section id="send" name="Send Data">
+    <agent file="cloud/send.xml" />
+    <agent file="genomespace/genomespace_exporter.xml" />
+  </section>
+  <section id="collection_operations" name="Collection Operations">
+    <agent file="${model_agents_path}/unzip_collection.xml" />
+    <agent file="${model_agents_path}/zip_collection.xml" />
+    <agent file="${model_agents_path}/filter_failed_collection.xml" />
+    <agent file="${model_agents_path}/filter_empty_collection.xml" />
+    <agent file="${model_agents_path}/flatten_collection.xml" />
+    <agent file="${model_agents_path}/merge_collection.xml" />
+    <agent file="${model_agents_path}/relabel_from_file.xml" />
+    <agent file="${model_agents_path}/filter_from_file.xml" />
+    <agent file="${model_agents_path}/sort_collection_list.xml" />
+    <agent file="${model_agents_path}/tag_collection_from_file.xml" />
+    <agent file="${model_agents_path}/apply_rules.xml" />
+    <agent file="${model_agents_path}/build_list.xml" />
+    <agent file="${model_agents_path}/extract_dataset.xml" />
+  </section>
+  <section id="expression_agents" name="Expression Agents">
+    <agent file="expression_agents/parse_values_from_file.xml"/>
+  </section>
+  <label id="general_text_label" text="General Text Agents" />
+  <section id="text_manipulation" name="Text Manipulation">
+    <agent file="filters/fixedValueColumn.xml" />
+    <agent file="filters/catWrapper.xml" />
+    <agent file="filters/cutWrapper.xml" />
+    <agent file="filters/mergeCols.xml" hidden="true" />
+    <agent file="filters/convert_characters.xml" />
+    <agent file="filters/CreateInterval.xml" />
+    <agent file="filters/cutWrapper.xml" />
+    <agent file="filters/changeCase.xml" />
+    <agent file="filters/pasteWrapper.xml" />
+    <agent file="filters/remove_beginning.xml" />
+    <agent file="filters/randomlines.xml" />
+    <agent file="filters/headWrapper.xml" />
+    <agent file="filters/tailWrapper.xml" />
+    <agent file="filters/trimmer.xml" />
+    <agent file="filters/wc_gnu.xml" />
+    <agent file="filters/secure_hash_message_digest.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/remove_ending.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/find_and_replace.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/replace_text_in_column.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/replace_text_in_line.xml" hidden="True" />
+  </section>
+  <section id="filter_and_sort" name="Filter and Sort">
+    <agent file="stats/filtering.xml" />
+    <agent file="filters/sorter.xml" />
+    <agent file="filters/grep.xml" />
+    <label id="gff" text="GFF" />
+    <agent file="filters/gff/extract_GFF_Features.xml" />
+    <agent file="filters/gff/gff_filter_by_attribute.xml" />
+    <agent file="filters/gff/gff_filter_by_feature_count.xml" />
+    <agent file="filters/gff/gtf_filter_by_attribute_values_list.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/word_list_grep.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/uniq_agent.xml" hidden="True" />
+  </section>
+  <section id="join_subtract_and_group" name="Join, Subtract and Group" version="">
+    <agent file="filters/joiner.xml" />
+    <agent file="filters/compare.xml" />
+    <agent file="stats/grouping.xml" />
+  </section>
+
+  <label id="genomic_manip_label" text="Genomic File Manipulation"  />
+  <section id="convert_formats" name="Convert Formats">
+    <agent file="filters/axt_to_concat_fasta.xml" />
+    <agent file="filters/axt_to_fasta.xml" />
+    <agent file="filters/axt_to_lav.xml" />
+    <agent file="filters/bed2gff.xml" />
+    <agent file="filters/gff2bed.xml" />
+    <agent file="filters/lav_to_bed.xml" />
+    <agent file="maf/maf_to_bed.xml" />
+    <agent file="maf/maf_to_interval.xml" />
+    <agent file="maf/maf_to_fasta.xml" />
+    <agent file="filters/wiggle_to_simple.xml" />
+    <agent file="filters/sff_extractor.xml" />
+    <agent file="filters/gtf2bedgraph.xml" />
+    <agent file="filters/wig_to_bigwig.xml" />
+    <agent file="filters/bed_to_bigbed.xml" />
+    <agent file="extract/liftOver_wrapper.xml" />
+  </section>
+  <section id="fasta_fastq" name="FASTA/FASTQ" version="">
+    <label id="solid" text="AB-SOLiD data" />
+    <agent file="next_gen_conversion/solid2fastq.xml" />
+    <agent file="solid_agents/solid_qual_stats.xml" />
+    <agent file="solid_agents/solid_qual_boxplot.xml" />
+  </section>
+  <section id="fastq_quality_control" name="FASTQ Quality Control" version="">
+  </section>
+  <section id="sam_bam_manipulation" name="SAM/BAM">
+    <label id="bamagents_label" text="bamagents" />
+    <label id="samagents_label" text="samagents" />
+  </section>
+  <section id="bed_agents" name="BED">
+  </section>
+  <section id="vcf_agents" name="VCF/BCF">
+    <label id="vcflib_label" text="vcflib" />
+  </section>
+  <section id="nanopore" name="Nanopore">
+    <label id="nanopore_label" text="poreagents" />
+  </section>
+
+  <label id="genomics_label" text="Common Genomics Agents" />
+  <section id="operate_on_genomic_intervals" name="Operate on Genomic Intervals">
+    <agent file="stats/aggregate_binned_scores_in_intervals.xml" />
+  </section>
+  <section id="fetch_sequences" name="Fetch Sequences / Alignments">
+    <agent file="filters/ucsc_gene_bed_to_exon_bed.xml" />
+    <agent file="maf/interval2maf_pairwise.xml" />
+    <agent file="maf/interval2maf.xml" />
+    <agent file="maf/maf_split_by_species.xml" />
+    <agent file="maf/interval_maf_to_merged_fasta.xml" />
+    <agent file="maf/genebed_maf_to_fasta.xml" />
+    <agent file="maf/maf_stats.xml" />
+    <agent file="maf/maf_thread_for_species.xml" />
+    <agent file="maf/maf_limit_to_species.xml" />
+    <agent file="maf/maf_limit_size.xml" />
+    <agent file="maf/maf_by_block_number.xml" />
+    <agent file="maf/maf_reverse_complement.xml" />
+    <agent file="maf/maf_filter.xml" />
+  </section>
+
+  <label id="genomics_analysis_label" text="Genomics Analysis" />
+  <section id="annotation" name="Annotation" version="">
+    <agent file="/opt/galaxy/shed_agents/agentshed.g2.bx.psu.edu/repos/iuc/snpeff/e8adfc4c0a6b/snpeff/snpSift_geneSets.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/dexseq/dexseq_annotate.xml"/>
+    <agent file="{{ galaxy_nonrepro_agents }}/test/dexseq/mapDEXSeqBinsToExons.xml"/>
+  </section>
+  <section id="ONTO-AgentKit" name="Ontology">
+    <label id="onto_agentkit_label" text="ONTO-AgentKit" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_ancestor_terms.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_child_terms.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_descendent_terms.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_intersection_ontology_from.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_list_intersection_from.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_parent_terms_by_relationship_type.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_parent_terms.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_relationship_types.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_subontology_from.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/get_terms_by_relationship_type.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/obo2rdf.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/obo2tran.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/obo2owl.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/term_id_vs_term_def.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/onto-perl-agentkit/term_id_vs_term_name.xml" hidden="True" />
+  </section>
+  <section id="assembly" name="Assembly" version="">
+  <!--
+  Keep this section commented until it includes agents that
+  will be hosted on test/main.  The velvet wrappers have been
+  included in the distribution but will not be hosted on our
+  public servers for the current time.-->
+    <agent file="sr_assembly/velvetg.xml" labels="training-only"/>
+    <agent file="sr_assembly/velveth.xml" labels="training-only"/>
+  </section>
+  <section id="mapping" name="Mapping" version="">
+    <agent file="sr_mapping/bfast_wrapper.xml" />
+    <agent file="sr_mapping/PerM.xml" />
+    <agent file="sr_mapping/srma_wrapper.xml" />
+    <agent file="sr_mapping/mosaik.xml" />
+  </section>
+
+  <section id="variant_calling" name="Variant Calling">
+    <label id="snpeff_label" text="snpeff" />
+    <label id="snpsift_label" text="snpsift" />
+  </section>
+  <section id="genome_editing" name="Genome editing" >
+  </section>
+  <section id="rna_analysis" name="RNA-Seq">
+    <!--label id="rna_seq" text="RNA-seq" /-->
+    <agent file="{{ galaxy_nonrepro_agents }}/test/deseq2/deseq2_matrix.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/deseq2/deseq2_single.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/blockbuster/blockbuster.xml" />
+    <!--<agent file="{{ galaxy_nonrepro_agents }}/test/blockclust/blockclust.xml" /-->
+    <!--agent file="{{ galaxy_nonrepro_agents }}/test/graphclust/graphclust.xml" /-->
+
+    <!-- Trinity is very memory-intensive and should only be enabled/run
+    on instances with sufficient resources.
+    <label text="De novo Assembly" id="de_novo_assembly "/>
+    <agent file="ngs_rna/trinity_all.xml" />
+    -->
+  </section>
+  <section id="peak_calling" name="Peak Calling">
+    <label id="macs2" text="MACS2" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_callpeak.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_bdgbroadcall.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_bdgcmp.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_bdgdiff.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_bdgpeakcall.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_filterdup.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_predictd.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_randsample.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/macs2/macs2_refinepeak.xml"  hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/p_clip_peaks/p_clip_peaks.xml" />
+  </section>
+  <section id="epigenetics" name="Epigenetics">
+    <agent file="{{ galaxy_nonrepro_agents }}/bismark/bismark_bowtie2_wrapper.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/bismark/bismark_bowtie_wrapper.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/bismark/bismark_methylation_extractor.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/calling.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/destrand.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/dmr.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/filter.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/plot.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/tiling.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/smooth.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/dna_methylation/correlation_matrix.xml" />
+  </section>
+  <section id="phylogenetics" name="Phylogenetics" >
+  </section>
+  <section id="phenotype_association" name="Phenotype Association">
+    <agent file="evolution/codingSnps.xml" />
+    <agent file="evolution/add_scores.xml" />
+    <agent file="phenotype_association/sift.xml" />
+    <agent file="phenotype_association/linkToGProfile.xml" />
+    <agent file="phenotype_association/linkToDavid.xml" />
+    <agent file="phenotype_association/ldagents.xml" />
+    <agent file="phenotype_association/pass.xml" />
+    <agent file="phenotype_association/gpass.xml" />
+    <agent file="phenotype_association/beam.xml" />
+    <agent file="phenotype_association/lps.xml" />
+    <agent file="phenotype_association/master2pg.xml" />
+    </section>
+  <section id="single-cell" name="Single-cell" >
+  </section>
+
+  <label id="genomics_agentkits_label" text="Genomics Agentkits"/>
+  <section id="picard" name="Picard" version="">
+  </section>
+  <section id="deepagents" name="deepAgents">
+  </section>
+  <section id="gemini_agents" name="Gemini" >
+  </section>
+  <section id="emboss" name="EMBOSS">
+  </section>
+  <section id="gatk" name="GATK Agents" >
+  </section>
+  <section id="ncbi_blast" name="NCBI Blast">
+  </section>
+  <section id="hicexplorer" name="HiCExplorer">
+  </section>
+  <section id="rad_seq" name="RAD-seq" >
+  </section>
+  <section id="graphclust" name="GraphClust" >
+  </section>
+  <section id="mimodd" name="MiModD">
+  </section>
+
+
+  <label id="metagenomics_label" text="Metagenomics" />
+  <section id="metagenomic_analyses" name="Metagenomic Analysis" >
+  </section>
+  <section id="qiime" name="Qiime" >
+  </section>
+  <section id="mothur" name="Mothur" >
+  </section>
+
+  <label id="proteomics_metabolomics_chemistry_label" text="Proteomics, Metabolomics, Chemistry" />
+  <section id="proteomics" name="Proteomics">
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tandem.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tandem_github.xml" />
+  </section>
+  <section id="metabolomics" name="Metabolomics">
+    <label id="preprocessing_lcms" text="Preprocessing LCMS" />
+    <label id="preprocessing_fiams" text="Preprocessing FIAMS" />
+    <label id="preprocessing_gcms" text="Preprocessing GCMS" />
+    <label id="preprocessing_nmr" text="Preprocessing NMR" />
+    <label id="normalization_quality_lcms_fiams" text="Normalization quality LCMS FIAMS" />
+    <label id="normalization_quality_all" text="Normalization quality ALL" />
+    <label id="statistics_all" text="Statistics ALL" />
+    <label id="annotation_lcms_fiams" text="Annotation LCMS FIAMS" />
+    <label id="annotation_lcms" text="Annotation LCMS" />
+    <label id="annotation_gcms" text="Annotation GCMS" />
+    <label id="data_handling_all" text="Data handling ALL" />
+  </section>
+  <section id="chemicalagentbox" name="ChemicalAgentBox" version="">
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/chemicalagentbox/fragmenter/fragmenter.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/galaxyagents/chemicalagentbox/fragmenter/merger.xml" />
+  </section>
+  <section id="gis_data_handling" name="GIS Data Handling" />
+  <section id="animal_detection_on_acoustic_recordings" name="Animal Detection on Acoustic Recordings" />
+
+  <label id="stats_viz" text="Statistics and Visualisation" />
+  <section id="statistics" name="Statistics">
+    <agent file="{{ galaxy_nonrepro_agents }}/test/statistical_hypothesis_testing.xml" />
+    <agent file="stats/gsummary.xml" />
+    <agent file="filters/uniq.xml" />
+    <!--agent file="regVariation/linear_regression.xml" />
+    <agent file="regVariation/logistic_regression_vif.xml" />
+    <agent file="regVariation/rcve.xml" />
+    <agent file="regVariation/partialR_square.xml" /-->
+  </section>
+  <section id="graph_display_data" name="Graph/Display Data" >
+    <agent file="plotting/bar_chart.xml" />
+    <agent file="plotting/boxplot.xml" />
+    <agent file="visualization/LAJ.xml" />
+    <agent file="maf/vcf_to_maf_customtrack.xml" />
+    <agent file="chromatra/chromatral.xml" />
+    <agent file="chromatra/chromatrat.xml" />
+    <agent file="plotting/foldchanges_heatmap.xml" />
+  </section>
+
+  <label id="other_and_agentsuites_label" text="Miscellaneous Agents" />
+  <!--section id="regional_variation" name="Regional Variation">
+    <agent file="regVariation/windowSplitter.xml" />
+    <agent file="regVariation/featureCounter.xml" />
+    <agent file="regVariation/WeightedAverage.xml" />
+    <agent file="regVariation/quality_filter.xml" />
+    <agent file="regVariation/maf_cpg_filter.xml" />
+    <agent file="regVariation/getIndels_2way.xml" />
+    <agent file="regVariation/getIndelRates_3way.xml" />
+    <agent file="regVariation/substitutions.xml" />
+    <agent file="regVariation/substitution_rates.xml" />
+    <agent file="regVariation/microsats_alignment_level.xml" />
+    <agent file="regVariation/microsats_mutability.xml" />
+  </section-->
+  <section id="evolution" name="Evolution">
+    <agent file="evolution/codingSnps.xml" />
+    <agent file="evolution/add_scores.xml" />
+  </section>
+  <section id="motif_agents" name="Motif Agents">
+    <agent file="meme/meme.xml" hidden="True" />
+    <agent file="meme/fimo.xml" hidden="True" />
+    </section>
+  <section id="bg-test-agents" name="Test Agents">
+    <agent file="{{ galaxy_nonrepro_agents }}/maxquant/maxquant.xml" labels="alpha" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/estimator_attributes.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/feature_selection.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/fit_and_predict.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/stacking_ensembles.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/keras_model_builder.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/keras_model_config.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/model_validation.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/pipeline.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/search_model_validation.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/Galaxy-ML-master/galaxy_ml/train_test_split.xml" labels="alpha" />
+
+
+    <agent file="{{ galaxy_nonrepro_agents }}/tombo/tombo_resquiggle.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/tombo/tombo_text_output.xml" labels="alpha" />
+    <agent file="{{ galaxy_nonrepro_agents }}/tombo/tombo_detect_modifications.xml" labels="alpha" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tpp/peptide_prophet.xml"  labels="beta" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tpp/pepxml_and_protxml_to_table.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tpp/protein_prophet.xml"  />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/tpp/interprophet.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/scrna/raceid_main.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/discriminant.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/eden_converter.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/eden_vectorizer.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/nn_classifier.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/numeric_clustering.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/svm.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/sparse.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/pre_process.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/pairwise_metrics.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/sample_generator.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/generalized_linear.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/ensemble.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/clf_metrics.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/ml/proteasis/protease.xml" />
+    <!--<agent file="{{ galaxy_nonrepro_agents }}/test/moff/moff.xml" />-->
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bigwigCorrelate.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bwagent.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bigwig_to_bedgraph.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/protein_properties.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicBuildMatrix.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicCorrectMatrix.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicCorrelate.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicFindTADs.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicPlotDistVsCounts.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicPlotMatrix.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicPlotTADs.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/HiCExplorer/galaxy/wrapper/hicSumMatrices.xml" hidden="True" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/base_distribution.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/codon_count.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/gb_embl_to_gff.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/gb_to_sequence.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/gff_to_sequence.xml" />
+    <!--agent file="{{ galaxy_nonrepro_agents }}/test/biopython/reverse_complement.xml" /-->
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/sequence_converter.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/biopython/translate.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/convert_bc_to_binary_RY.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/coords2clnt.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/extract_aln_ends.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/extract_bcs.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/flexbar_no_split.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/flexbar_split_RR_bcs.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/flexbar_split_RYYR_bcs.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/flexbar.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/flexbar_dsc.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/merge_pcr_duplicates.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/remove_tail.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/bcagents/rm_spurious_events.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/secret_bowtie2_test/secret_bowtie2_wrapper.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/lfoldz/rnalfoldz.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/chira/chira.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/lfoldz/rnalfoldz.xml" />
+
+    <agent file="{{ galaxy_nonrepro_agents }}/test/imaging/he_maldi_image_registration/he_maldi_image_registration.xml" />
+    <!--agent file="{{ galaxy_nonrepro_agents }}/test/imaging/overlay_moving_and_fixed_image/overlay_moving_and_fixed_image.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/imaging/projective_transformation/projective_transformation.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/imaging/scale_image/scale_image.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/imaging/coordinates_of_roi/coordinates_of_roi.xml" />
+    <agent file="{{ galaxy_nonrepro_agents }}/test/imaging/projective_transformation_points/projective_transformation_points.xml" /-->
+  </section>
+  <section id="regional_variation" name="Regional Variation" >
+  </section>
+  <section id="genome_diversity" name="Genome Diversity" >
+  </section>
+
+  <!-- Hidden Agents + UNused Sections -->
+  <section id="deprecated" name="Deprecated">
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/sed_agent.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/awk_agent.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/grep_agent.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/sort-header.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/cut_agent.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/easyjoin.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/unix_agents/multijoin.xml" hidden="True" />
+    <agent file="{{ galaxy_nonrepro_agents }}/agents-iuc/agents/bedagents/mergeBed.xml" hidden="True" />
+    <agent file="extract/extract_genomic_dna.xml" hidden="True" />
+  </section>
+
+  <section id="interactiveagents" name="Interactive agents">
+	<agent file="interactive/codingSnps.xml" />
+	<agent file="interactive/interactiveagent_jupyter_notebook.xml" />
+	<agent file="interactive/interactiveagent_rstudio.xml" />
+	<agent file="interactive/interactiveagent_bam_iobio.xml" />
+	<agent file="interactive/interactiveagent_cellxgene.xml" />
+	<agent file="interactive/interactiveagent_hicbrowser.xml" />
+	<agent file="interactive/interactiveagent_neo4j.xml" />
+	<agent file="interactive/interactiveagent_phinch.xml" />
+	<agent file="interactive/interactiveagent_paraview.xml" />
+	<agent file="interactive/interactiveagent_askomics.xml" />
+	<!--currently non-functional-->
+	<!--<agent file="interactive/interactiveagent_ethercalc.xml" />-->
+</section>
+
+</agentbox>

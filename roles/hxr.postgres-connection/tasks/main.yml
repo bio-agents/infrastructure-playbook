@@ -1,0 +1,18 @@
+---
+- name: Add env vars in bashrc
+  lineinfile:
+    path: "~/.bashrc"
+    regexp: "^export {{ item.var }}"
+    line: "export {{ item.var }}='{{ item.val }}'"
+  with_items:
+    - var: PGUSER
+      val: "{{ postgres_user }}"
+    - var: PGHOST
+      val: "{{ postgres_host }}"
+
+- name: Copy using the 'content' for inline data
+  copy:
+    content: |
+      {{ postgres_host }}:{{ postgres_port }}:*:{{ postgres_user }}:{{ postgres_pass }}
+    dest: "~/.pgpass"
+    mode: 0600

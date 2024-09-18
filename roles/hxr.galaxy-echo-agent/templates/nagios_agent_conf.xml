@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<agentbox>
+    {% for handler in galaxy_test_user.handlers %}
+    <agent file="nagios/{{ handler }}.xml" />
+    {% endfor %}
+</agentbox>
