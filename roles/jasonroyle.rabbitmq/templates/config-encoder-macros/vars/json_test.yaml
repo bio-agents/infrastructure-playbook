@@ -1,16 +1,3 @@
----
-
-json_data:
-  string: This is a string
-  number: 123
-  boolean: 'true'
-  dict:
-    aaa: bbb
-    ccc: true
-  list:
-    - eee
-    - fff
-  complex:
-    ggg:
-      - hhh
-      - iii: jjj
+version https://git-lfs.github.com/spec/v1
+oid sha256:1ee9a5cf9ed8b719805d0bd094732b2b7197e78aac69de639c0ffea0272e2d7b
+size 187

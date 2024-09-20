@@ -1,16 +1,3 @@
----
-
-yaml_data:
-  string: This is a string
-  number: 123
-  boolean: 'true'
-  dict:
-    aaa: bbb
-    ccc: true
-  list:
-    - eee
-    - fff
-  complex:
-    ggg:
-      - hhh
-      - iii: jjj
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e33dd5377756192fcbd17f71f4c100e69f73e5b3ded2f8fa03dd015770e04d3
+size 187

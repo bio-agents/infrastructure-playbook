@@ -1,15 +1,3 @@
----
-
-xml_data:
-  root:
-    elem1: asd
-    elem2:
-      - asd
-      - zxc
-    with_attrs:
-      'elem3 attr1="val1" attr2=val2': 123
-      'elem4 attr3="val3"':
-        - Value 1
-        - elem5:
-            - Value 2
-            - Value 3
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5cc8c19cdf38b7dea51cb7191c8fc2fc890420a758044c0e88e86a73fc83f1a
+size 239

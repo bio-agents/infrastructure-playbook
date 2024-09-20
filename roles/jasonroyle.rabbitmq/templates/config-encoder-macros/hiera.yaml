@@ -1,12 +1,3 @@
-:backends:
-  - yaml
-:hierarchy:
-  - apache_test
-  - erlang_test
-  - ini_test
-  - json_test
-  - toml_test
-  - xml_test
-  - yaml_test
-:yaml:
-  :datadir: ./vars
+version https://git-lfs.github.com/spec/v1
+oid sha256:41e0da2dcc09daa7670178ee814ef7096a99763d6400a45ee67106cc4c173701
+size 158

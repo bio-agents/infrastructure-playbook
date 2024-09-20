@@ -1,12 +1,3 @@
-{
-  "url": "{{ galaxy_test_url }}",
-  "username": "{{ galaxy_test_user.username }}",
-  "password": "{{ galaxy_test_user.password }}",
-  "api_key": "{{ galaxy_test_user.api_key }}",
-  "galaxy_test_name": "{{ galaxy_test_name }}",
-  "handlers": [
-  {% for handler in galaxy_test_user.handlers %}
-    "{{ handler }}"{% if not loop.last %},{% endif %}
-  {% endfor %}
-  ]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:10fe9980da4ad20d9ce51d70efebbc9b1ced899c67691c5b7f4afaf550c62128
+size 369
